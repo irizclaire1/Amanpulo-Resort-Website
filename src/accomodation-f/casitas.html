@@ -83,151 +83,11 @@
             }
 
             .view-more {
-                position: absolute;
-                bottom: 50%;
-                left: 50%;
-                transform: translate(-50%, 50%);
-                opacity: 0;
-                background-color: rgba(0, 31, 63, 0.8);
-                color: white;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-weight: bold;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                text-align: center;
                 cursor: pointer;
                 pointer-events: auto;
-                border: none;
             }
-
-            .image-container:hover .view-more {
-                opacity: 1;
-                transform: translate(-50%, 0%);
-            }
-
-            /* Modal Styling */
-            .modal {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1000;
-                transition: opacity 0.3s ease-in-out;
-            }
-
-            .modal.hidden {
-                display: none;
-            }
-
-            .modal-content {
-                background: white;
-                padding: 24px;
-                border-radius: 12px;
-                max-width: 1000px;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-                box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-                animation: fadeIn 0.4s ease-in-out;
-                position: relative;
-            }
-
-            /* Modal Body: Image + Text */
-            .modal-body {
-                display: flex;
-                gap: 24px;
-                align-items: center;
-            }
-
-            /* Close Button */
-            .close {
-                position: absolute;
-                top: 12px;
-                right: 16px;
-                font-size: 22px;
-                cursor: pointer;
-                font-weight: bold;
-            }
-
-            /* Carousel */
-            .carousel {
-                position: relative;
-                width: 100%;
-                border-radius: 10px;
-                overflow: hidden;
-            }
-
-            .carousel-images {
-                position: relative;
-                width: 100%;
-                height: 380px; /* Increased height */
-            }
-
-            .carousel-slide {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Ensure images fill the container */
-                opacity: 0;
-                transition: opacity 0.5s ease-in-out;
-                border-radius: 10px;
-            }
-
-            .carousel-slide.active {
-                opacity: 1;
-            }
-
-            /* Circle Indicators */
-            .carousel-indicators {
-                display: flex;
-                justify-content: center;
-                margin-top: 12px;
-            }
-
-            .indicator {
-                width: 10px;
-                height: 10px;
-                margin: 6px;
-                background: #bbb;
-                border-radius: 50%;
-                cursor: pointer;
-                transition: background 0.3s ease-in-out;
-            }
-
-            .indicator.active {
-                background: #001F3F;
-            }
-
-            /* Fade-in Animation */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* Responsive */
-            @media (max-width: 768px) {
-                .modal-body {
-                    flex-direction: column;
-                    text-align: center;
-                }
-                .carousel {
-                    width: 100%;
-                }
-                .carousel-images {
-                    height: 300px; /* Adjust height for smaller screens */
-                }
-            }
+            
+            
 
 
         }
@@ -296,97 +156,155 @@
         </header>
 
         <!-- Accommodation Gallery -->
-        <section class="py-16 px-6">
+        <section class="py-16 px-18">
             <div class="w-48 mx-auto border-t-2 border-white"></div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-10">
                 
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Amanpulo, Beach Pool Casita.webp" alt="Casita">
-                        <span class="view-more">View More</span>
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Amanpulo, Beach Pool Casita.webp" alt="Beach Pool Casita">
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Beach Pool Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Steps away from the shore with a private plunge pool.
-                    </p>
-                </div>
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Amanpulo,Philippines - Accommodation, Beach Casita, Bedroom and Deck.webp"
-                            alt="Casita">
-                        <span class="view-more">View More</span>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Beach Pool Casita</h3>
+                        <p class="text-black">Steps away from the shore with a private plunge pool.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                            onclick="openModal('Beach Pool Casita', '../assets/images/Casitas/casita-room1.webp', 'Steps away from the shore with a private plunge pool.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'floor-to-ceiling sliding doors', 'Beach, sea and island views'], '$1,800 per night')">
+                            View More
+                        </button>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Beach Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Set along the white-sand beach with wooden decks and
-                        hammocks.</p>
                 </div>
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Amanpulo-Treetop-Pool-Casita-square.webp" alt="Casita">
-                        <span class="view-more">View More</span>
-                    </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Treetop Pool Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Private wooden deck and swimming pool with views of the
-                        treetops.</p>
-                </div>
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Deluxe Hillside Casita, Amanpulo, Philippines_Square.webp"
-                            alt="Casita">
-                        <span class="view-more">View More</span>
-                    </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Treetop Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Serene views of lush rainforest canopy from the spacious
-                        wooden deck.</p>
-                </div>
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Amanpulo-hillside-casita-bathroom-square-.webp" alt="Casita">
-                        <span class="view-more">View More</span>
-                    </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Deluxe Hillside Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Identical to the Hillside Casitas but with superior
-                        views of the sea.</p>
-                </div>
-                <div class="accommodation-item">
-                    <div class="image-container">
-                        <img class="h-auto w-full rounded-lg shadow-lg"
-                            src="../assets/images/Casitas/Amanpulo, Philippines – Accommodation, Hillside Casita, Bedroom1.webp"
-                            alt="Casita">
-                        <span class="view-more">View More</span>
-                    </div>
-                    <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-white">Hillside Casita</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Elevated setting with partial sea views from a private
-                        wooden deck.</p>
-                </div>
-            </div>
 
-            <!-- Modals-->
-            <div id="modal-lagoon" class="modal hidden">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modal-lagoon')">&times;</span>
-                    <div class="modal-body">
-                        <!-- Image Carousel -->
-                        <div class="carousel">
-                            <div class="carousel-images">
-                                <img class="carousel-slide active" src="../assets/images/Villas/Four B-Room.webp" alt="Lagoon Villa 1">
-                                <img class="carousel-slide" src="../assets/images/Villas/Four B-room 2.webp" alt="Lagoon Villa 2">
-                            </div>
-                            <div class="carousel-indicators"></div>
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Amanpulo,Philippines - Accommodation, Beach Casita, Bedroom and Deck.webp" alt="Beach Casita">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Beach Casita</h3>
+                        <p class="text-black">Set along the white-sand beach with wooden decks and hammocks.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                            onclick="openModal('Beach Casita', '../assets/images/Casitas/casita-room2.webp', 'Set along the white-sand beach with wooden decks and hammocks.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'Personal Bar', 'Beach, sea and island views'], '$1,800 per night')">
+                            View More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Amanpulo-Treetop-Pool-Casita-square.webp" alt="Treetop Pool Casita">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Treetop Pool Casita</h3>
+                        <p class="text-black">Private wooden deck and swimming pool with views of the treetops.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                        onclick="openModal('Treetop Pool Casita', '../assets/images/Casitas/casita-room3.webp', 'Private wooden deck and swimming pool with views of the treetops.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'Treetop views', 'Private swimming pool (7m x 3m / 23ft x 10ft)'], '$1,900 per night')">
+                        View More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Deluxe Hillside Casita, Amanpulo, Philippines_Square.webp" alt="Treetop Casita">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Treetop Casita</h3>
+                        <p class="text-black">Serene views of lush rainforest canopy from the spacious
+                            wooden deck.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                            onclick="openModal('Treetop Casita', '../assets/images/Casitas/casita-room4.webp', 'Private wooden deck and swimming pool with views of the treetops.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'Treetop views', 'Private swimming pool (7m x 3m / 23ft x 10ft)'], '$1,900 per night')">
+                            View More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Amanpulo-hillside-casita-bathroom-square-.webp" alt="Deluxe Hillside Casita">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Deluxe Hillside Casita</h3>
+                        <p class="text-black">Identical to the Hillside Casitas but with superior
+                            views of the sea.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                        onclick="openModal('Deluxe Hillside Casita', '../assets/images/Casitas/casita-room5.webp', 'Identical to the Hillside Casitas but with superior views of the sea.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'Treetop views', 'Private swimming pool (7m x 3m / 23ft x 10ft)'], '$1,900 per night')">
+                        View More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <div class="image-container max-w-sm bg-white border border-gray-200 rounded-t-lg shadow-s">
+                        <img class="rounded-t-lg"
+                            src="../assets/images/Casitas/Amanpulo, Philippines – Accommodation, Hillside Casita, Bedroom1.webp" alt="Hillside Casita">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Hillside Casita</h3>
+                        <p class="text-black">Elevated setting with partial sea views from a private
+                            wooden deck.</p>
+                        <button class="view-more mt-4 text-white bg-[#001F3F] px-4 py-2 rounded-lg shadow-md hover:bg-gray-600 transition duration-300" 
+                            onclick="openModal('Hillside Casita', '../assets/images/Casitas/casita-room6.webp', 'Identical to the Hillside Casitas but with superior views of the sea.', ['King-size bed', 'Large bathroom with Cebu marble accents', 'Treetop views', 'Private swimming pool (7m x 3m / 23ft x 10ft)'], '$1,900 per night')">
+                            View More
+                        </button>
+                    </div>
+                </div>
+
+
+            <!-- Single Modal for All Accommodation Items -->
+            <div id="modal" class="modal fixed inset-0 z-50 hidden">
+                <!-- Semi-Transparent Black Background -->
+                <div class="modal-overlay absolute inset-0 bg-black/40 bg-opacity-40 backdrop-blur-sm"></div>
+
+                <!-- Modal Content Box (Landscape Layout) -->
+                <div class="modal-content flex items-center justify-center absolute inset-0">
+                    <div class="bg-white w-11/12 md:w-3/4 lg:w-2/3 max-w-4xl rounded-xl shadow-2xl z-10 flex flex-col md:flex-row overflow-hidden">
+                        <!-- Image Section (Left Side) -->
+                        <div class="w-full md:w-2/5 h-48 md:h-auto">
+                            <img id="modal-image" class="w-full h-full object-cover rounded-t-xl md:rounded-l-xl md:rounded-tr-none" src="" alt="">
                         </div>
-                        <!-- Modal Text -->
-                        <div class="modal-text">
-                            <h2 class="font-bold text-xl text-yellow-900">Four-Bedroom Lagoon Villa</h2>
-                            <p>
-                                Discreetly located in tranquil surroundings, the Lagoon Villa promises unparalleled peace and 
-                                seclusion with 351 square meters (3,788 square feet) of interior space for guests to retreat. 
-                                Each villa consists of four casitas set around a private pavilion and plunge pool.
-                            </p>
+
+                        <!-- Content Section (Right Side) -->
+                        <div class="w-full md:w-3/5 p-6 flex flex-col justify-between">
+
+                            <!-- Description -->
+                            <div>
+                                <h2 id="modal-title" class="font-serif text-2xl font-semibold text-yellow-800"></h2>
+                                <p id="modal-description" class="mt-2 text-gray-600 text-sm leading-relaxed"></p>
+                            </div>
+
+                            <!-- Rooms Info -->
+                            <div class="mt-4">
+                                <h3 class="font-medium text-base text-gray-900">Rooms</h3>
+                                <ul id="modal-rooms" class="list-none mt-2 space-y-2 text-gray-600 text-sm">
+                                    <!-- Room items will be dynamically inserted here -->
+                                </ul>
+                            </div>
+
+                            <!-- Price & Buttons -->
+                            <div class="mt-6 border-t pt-4 flex justify-between items-center">
+                                <!-- Price -->
+                                <p id="modal-price" class="text-yellow-900 text-xl font-semibold"></p>
+
+                                <!-- Buttons -->
+                                <div class="flex space-x-3">
+                                    <button type="button"
+                                        class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
+                                        onclick="bookNow()">
+                                        Book Now
+                                    </button>
+
+                                    <button type="button"
+                                        class="py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700"
+                                        onclick="closeModal()">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,6 +391,64 @@
             });
         });
     </script>
+
+    <script>
+        // Function to open the modal and populate it with data
+        function openModal(title, imageSrc, description, rooms, price) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalRooms = document.getElementById('modal-rooms');
+            const modalPrice = document.getElementById('modal-price');
+
+            // Set modal content
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalPrice.textContent = price;
+
+            // Clear previous room items
+            modalRooms.innerHTML = '';
+
+            // Add new room items
+            rooms.forEach(room => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center';
+                li.innerHTML = `
+                    <span class="text-yellow-600 mr-2">✔</span>
+                    <span>${room}</span>
+                `;
+                modalRooms.appendChild(li);
+            });
+
+            // Show the modal
+            modal.classList.remove('hidden');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        }
+
+        // Function to handle "Book Now" button click
+        function bookNow() {
+            const title = document.getElementById('modal-title').textContent;
+            alert(`Booking now for: ${title}`);
+            // You can replace this with a redirect to a booking page or other logic
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+
     
 
 </body>
